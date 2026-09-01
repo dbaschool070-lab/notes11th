@@ -1,0 +1,261 @@
+/* ============================================================
+   कक्षा 11 Notes Hub — BSEB हिंदी माध्यम (PCB)
+   साफ़-सुथरा, मोबाइल-फ्रेंडली, प्रिंट-रेडी डिज़ाइन
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1e293b;
+  --ink-soft: #475569;
+  --page-bg: #f1f5f9;
+  --card-bg: #ffffff;
+}
+
+/* ---------- विषय-वार रंग थीम ---------- */
+body.phy  { --primary:#6d28d9; --primary-dark:#4c1d95; --tint:#f4efff; --tint2:#ede9fe; --border:#d9cafc; }
+body.chem { --primary:#0d9488; --primary-dark:#115e59; --tint:#effdf9; --tint2:#ccfbf1; --border:#99e5da; }
+body.bio  { --primary:#16a34a; --primary-dark:#14532d; --tint:#f1fdf4; --tint2:#dcfce7; --border:#b2e8c2; }
+body.home { --primary:#4338ca; --primary-dark:#312e81; --tint:#eef2ff;  --tint2:#e0e7ff; --border:#c7d2fe; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Mukta', 'Noto Sans Devanagari', 'Segoe UI', system-ui, sans-serif;
+  background: var(--page-bg);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+/* ---------- टॉप बार ---------- */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .75rem; padding: .7rem 1.1rem;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  color: #fff; position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 2px 10px rgba(15,23,42,.25);
+}
+.topbar a.home-link {
+  color: #fff; text-decoration: none; font-weight: 700;
+  background: rgba(255,255,255,.15); padding: .3rem .8rem;
+  border-radius: 2rem; white-space: nowrap;
+}
+.topbar a.home-link:hover { background: rgba(255,255,255,.28); }
+.topbar .crumb { font-size: .95rem; opacity: .92; }
+
+/* ---------- अध्याय हीरो ---------- */
+.chapter-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff; padding: 2.2rem 1rem 2.6rem;
+  background-image: radial-gradient(rgba(255,255,255,.12) 1.5px, transparent 1.5px),
+                    linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background-size: 26px 26px, cover;
+}
+.hero-inner { max-width: 860px; margin: 0 auto; }
+.chapter-hero h1 {
+  font-family: 'Baloo 2', 'Mukta', sans-serif;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1.3; margin: .6rem 0 .4rem;
+}
+.badge {
+  display: inline-block; background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.35); border-radius: 2rem;
+  padding: .25rem .9rem; font-weight: 600; font-size: .95rem;
+}
+.hero-topics { opacity: .92; font-size: 1.02rem; }
+
+/* ---------- मुख्य कंटेंट (नोट्स) ---------- */
+.content {
+  max-width: 860px; margin: -1.4rem auto 2rem; background: var(--card-bg);
+  border-radius: 1rem; padding: 2rem 2.4rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.08);
+  position: relative; z-index: 2;
+}
+
+/* हेडिंग्स */
+.content h2 {
+  font-family: 'Baloo 2', 'Mukta', sans-serif;
+  color: var(--primary-dark); font-size: 1.45rem; line-height: 1.4;
+  margin: 2rem 0 .9rem; padding: .55rem .9rem;
+  background: var(--tint); border-left: 6px solid var(--primary);
+  border-radius: .5rem;
+}
+.content h3 {
+  color: var(--primary-dark); font-size: 1.15rem;
+  margin: 1.6rem 0 .5rem; line-height: 1.5;
+}
+.content h3::before { content: "▸ "; color: var(--primary); }
+
+/* पैराग्राफ व लिस्ट */
+.content p { margin: .7rem 0; }
+.content ul, .content ol { margin: .6rem 0 .9rem 1.6rem; }
+.content li { margin: .35rem 0; }
+.content li::marker { color: var(--primary); font-weight: 700; }
+.content strong { color: #0f172a; }
+.content em { color: var(--ink-soft); }
+
+/* कोट/परिभाषा बॉक्स */
+.content blockquote {
+  background: var(--tint); border-left: 5px solid var(--primary);
+  border-radius: .5rem; padding: .9rem 1.1rem; margin: 1rem 0;
+  color: #334155;
+}
+.content blockquote p { margin: .35rem 0; }
+
+/* टेबल */
+.table-wrap { overflow-x: auto; margin: 1rem 0; border-radius: .6rem; box-shadow: 0 2px 8px rgba(15,23,42,.06); }
+.content table {
+  width: 100%; border-collapse: collapse; font-size: .97rem;
+  background: #fff; min-width: 480px;
+}
+.content th {
+  background: var(--primary); color: #fff; text-align: left;
+  padding: .6rem .8rem; font-weight: 700; white-space: nowrap;
+}
+.content td { padding: .55rem .8rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.content tr:nth-child(even) td { background: var(--tint); }
+.content tr:hover td { background: var(--tint2); }
+
+/* कोड/चार्ट ब्लॉक */
+.content pre {
+  background: #0f172a; color: #e2e8f0; padding: 1rem 1.2rem;
+  border-radius: .6rem; overflow-x: auto; margin: 1rem 0;
+  font-size: .92rem; line-height: 1.6;
+}
+.content code { font-family: 'Courier New', monospace; }
+.content p code, .content li code {
+  background: var(--tint2); color: var(--primary-dark);
+  padding: .1rem .4rem; border-radius: .3rem; font-size: .95em;
+}
+
+.content hr { border: none; border-top: 2px dashed var(--border); margin: 2rem 0; }
+
+/* ---------- पिछला/अगला नेविगेशन ---------- */
+.chapter-nav {
+  max-width: 860px; margin: 0 auto 2.5rem; padding: 0 1rem;
+  display: flex; gap: .7rem; flex-wrap: wrap; justify-content: space-between;
+}
+.nav-btn {
+  display: inline-block; text-decoration: none; font-weight: 700;
+  color: var(--primary-dark); background: #fff; border: 2px solid var(--border);
+  padding: .55rem 1rem; border-radius: .7rem; font-size: .95rem;
+  transition: all .2s ease;
+}
+.nav-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.nav-btn.home { background: var(--tint2); }
+.nav-btn.disabled { opacity: .35; cursor: not-allowed; }
+
+/* ---------- प्रिंट बटन ---------- */
+.print-btn {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60;
+  background: var(--primary); color: #fff; border: none; cursor: pointer;
+  font-family: inherit; font-weight: 700; font-size: 1rem;
+  padding: .75rem 1.3rem; border-radius: 3rem;
+  box-shadow: 0 6px 18px rgba(15,23,42,.3);
+  transition: transform .15s ease, background .2s ease;
+}
+.print-btn:hover { transform: translateY(-2px); background: var(--primary-dark); }
+
+/* ---------- फुटर ---------- */
+.site-footer {
+  text-align: center; padding: 1.4rem 1rem 5.5rem;
+  color: var(--ink-soft); font-size: .92rem;
+}
+
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
+.home-hero {
+  background: linear-gradient(135deg, #6d28d9 0%, #0d9488 52%, #16a34a 100%);
+  color: #fff; padding: 3rem 1rem 4rem; text-align: center;
+  background-image: radial-gradient(rgba(255,255,255,.14) 1.5px, transparent 1.5px),
+                    linear-gradient(135deg, #6d28d9 0%, #0d9488 52%, #16a34a 100%);
+  background-size: 26px 26px, cover;
+}
+.hero-emoji { font-size: 3rem; }
+.home-hero h1 {
+  font-family: 'Baloo 2', 'Mukta', sans-serif;
+  font-size: clamp(1.9rem, 5.5vw, 3rem); margin: .4rem 0;
+}
+.hero-sub { max-width: 640px; margin: 0 auto; opacity: .94; }
+.stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.3rem; }
+.chip {
+  background: rgba(255,255,255,.17); border: 1px solid rgba(255,255,255,.35);
+  border-radius: 2rem; padding: .35rem 1rem; font-weight: 600; font-size: .95rem;
+}
+
+.home-main { max-width: 1050px; margin: -2rem auto 2rem; padding: 0 1rem; position: relative; z-index: 2; }
+
+.subjects {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.2rem; align-items: stretch;
+}
+
+.subject-card {
+  background: #fff; border-radius: 1rem; padding: 1.3rem 1.3rem 1rem;
+  box-shadow: 0 8px 24px rgba(15,23,42,.08); border-top: 6px solid;
+  display: flex; flex-direction: column;
+}
+.subject-card.phy  { border-top-color: #6d28d9; }
+.subject-card.chem { border-top-color: #0d9488; }
+.subject-card.bio  { border-top-color: #16a34a; }
+
+.subject-card > header { display: flex; align-items: center; gap: .8rem; margin-bottom: .8rem; }
+.subj-icon { font-size: 2.1rem; }
+.subject-card h2 { font-family: 'Baloo 2', 'Mukta', sans-serif; font-size: 1.35rem; line-height: 1.2; }
+.subject-card small { color: var(--ink-soft); }
+
+.chapter-list { display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+.chapter-link {
+  display: flex; align-items: center; gap: .75rem; text-decoration: none;
+  color: var(--ink); background: #f8fafc; border: 1px solid #e2e8f0;
+  border-radius: .7rem; padding: .6rem .8rem; transition: all .18s ease;
+}
+.chapter-link:hover { transform: translateX(4px); border-color: var(--primary); background: #fff; }
+.subject-card.phy  { --primary:#6d28d9; --primary-dark:#4c1d95; }
+.subject-card.chem { --primary:#0d9488; --primary-dark:#115e59; }
+.subject-card.bio  { --primary:#16a34a; --primary-dark:#14532d; }
+
+.ch-no {
+  min-width: 2.1rem; height: 2.1rem; border-radius: .6rem;
+  display: grid; place-items: center; font-weight: 800; color: #fff;
+  background: var(--primary); font-family: 'Baloo 2', sans-serif;
+}
+.ch-info { display: flex; flex-direction: column; line-height: 1.35; flex: 1; }
+.ch-info small { color: var(--ink-soft); font-size: .84rem; }
+.ch-arrow { color: var(--primary); font-weight: 800; }
+
+/* टिप्स कार्ड */
+.tip-card {
+  margin-top: 1.4rem; background: #fff; border-radius: 1rem;
+  padding: 1.3rem 1.5rem; box-shadow: 0 8px 24px rgba(15,23,42,.08);
+  border-left: 6px solid #f59e0b;
+}
+.tip-card h2 { font-family: 'Baloo 2', 'Mukta', sans-serif; color: #b45309; margin-bottom: .5rem; }
+.tip-card li { margin: .35rem 0 .35rem 1.3rem; }
+
+/* ---------- मोबाइल ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .content { padding: 1.3rem 1rem; margin: -1.2rem .6rem 1.5rem; border-radius: .8rem; }
+  .topbar .crumb { font-size: .85rem; }
+  .print-btn { right: .8rem; bottom: .8rem; font-size: .9rem; padding: .6rem 1rem; }
+  .chapter-nav { gap: .5rem; }
+  .nav-btn { font-size: .85rem; padding: .45rem .7rem; }
+}
+
+/* ---------- प्रिंट / PDF सहेजना ---------- */
+@media print {
+  body { background: #fff; font-size: 12.5pt; }
+  .topbar, .chapter-nav, .print-btn, .site-footer { display: none !important; }
+  .chapter-hero { background: none !important; color: #000; padding: 0 0 .8rem; }
+  .chapter-hero h1 { color: #000; }
+  .badge { border: 1px solid #999; color: #333; }
+  .hero-topics { color: #444; }
+  .content { box-shadow: none; margin: 0; max-width: 100%; padding: 0 .4rem; }
+  .content h2 { background: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .content th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .table-wrap { overflow: visible; }
+  .content table { min-width: 0; font-size: 10.5pt; }
+  a { text-decoration: none; color: inherit; }
+}
